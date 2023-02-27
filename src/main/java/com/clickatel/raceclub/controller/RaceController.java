@@ -5,15 +5,14 @@ import com.clickatel.raceclub.model.Rider;
 import com.clickatel.raceclub.service.RaceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Slf4j
 @RestController
+@RequestMapping("/race")
 public class RaceController {
-    @Qualifier("RaceService")
     private final RaceService raceService;
 
     @Autowired
@@ -28,7 +27,7 @@ public class RaceController {
     public List<Race> getRaces() {
         return raceService.getRaces();
     }
-    @PostMapping("/create/race}")
+    @PostMapping("/create/race")
     public Race createRace(Race race) {
         return raceService.createRace(race);
     }

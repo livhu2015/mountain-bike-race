@@ -27,6 +27,4 @@ public class RaceResult {
     @JoinColumn(name="race_riders")
     private Set<Rider> riders;
 
-
-
 }

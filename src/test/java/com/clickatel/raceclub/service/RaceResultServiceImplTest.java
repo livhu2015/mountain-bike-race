@@ -3,6 +3,7 @@ package com.clickatel.raceclub.service;
 import com.clickatel.raceclub.exception.RaceNotFoundException;
 import com.clickatel.raceclub.model.RaceResult;
 import com.clickatel.raceclub.model.Rider;
+import com.clickatel.raceclub.model.WeatherInfo;
 import com.clickatel.raceclub.repository.RaceRepository;
 import com.clickatel.raceclub.repository.RaceResultRepository;
 import com.clickatel.raceclub.service.impl.RaceResultServiceImpl;
@@ -33,7 +34,8 @@ public class RaceResultServiceImplTest {
 
     @Test
     public void testGetFastestThreeRidersByRace() throws RaceNotFoundException {
-        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0));
+
+        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0), "France");
         Set<Rider> riders = new HashSet<>();
         Rider rider1 = new Rider(1L, "John Doe", "john.doe@example.com",  30, Duration.ofMinutes(810));
         Rider rider2 = new Rider(2L, "Jane Doe", "john.doe@example.com",  30, Duration.ofMinutes(170));
@@ -64,7 +66,8 @@ public class RaceResultServiceImplTest {
 
     @Test
     public void testGetRidersDidNotFinish() {
-        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0));
+
+        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0), "France");
         Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, Duration.ofSeconds(120));
         Rider rider2 = new Rider(2L, "Mick Doe", "john.doe@example.com",  30, Duration.ofSeconds(100));
         Rider rider3 = new Rider(3L, "alex Doe", "john.doe@example.com",  30, Duration.ofSeconds(80));
@@ -88,7 +91,8 @@ public class RaceResultServiceImplTest {
 
     @Test
     public void testGetRidersDidNotTakePartInRace() {
-        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0));
+
+        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0), "France");
         Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, Duration.ofSeconds(120));
         Rider rider2 = new Rider(2L, "Jane Doe", "john.doe@example.com",  28, null);
         Rider rider3 = new Rider(3L, "Alex Doe", "john.doe@example.com",  23, Duration.ofSeconds(400));

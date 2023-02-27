@@ -25,8 +25,10 @@ public class Race {
     @Column
     private LocalTime endTime;
 
-//    @Column
-//    private LocalTime date;
-//    @Column
-//    String country;
+    @Column
+    String country;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "weather_info_id")
+//    private WeatherInfo weatherInfo;
 }

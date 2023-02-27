@@ -24,7 +24,7 @@ public class RiderControllerIntegrationTest {
     private MockMvc mockMvc;
 
     @Autowired
-    RiderController clientController;
+    private RiderController clientController;
 
     @Test
     public void when_rider_controller_is_injected_then_result_NotNull() throws Exception {

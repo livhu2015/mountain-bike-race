@@ -2,3 +2,4 @@ com/clickatel/raceclub/RaceClubServiceApplicationTests.class
 com/clickatel/raceclub/service/RiderServiceImplTest.class
 com/clickatel/raceclub/service/RaceResultServiceImplTest.class
 com/clickatel/raceclub/controller/RiderControllerIntegrationTest.class
+com/clickatel/raceclub/service/WeatherServiceTest.class

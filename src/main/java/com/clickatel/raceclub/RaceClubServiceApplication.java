@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.ovalleaf.client.controller", "com.ovalleaf.client.repository", "com.ovalleaf.client.service"})
+@ComponentScan
 public class RaceClubServiceApplication {
 
 	public static void main(String[] args) {

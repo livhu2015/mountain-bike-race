@@ -11,8 +11,8 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequestMapping("/rider")
 public class RiderController {
-    @Qualifier("RiderService")
     private final RiderService riderService;
 
     @Autowired

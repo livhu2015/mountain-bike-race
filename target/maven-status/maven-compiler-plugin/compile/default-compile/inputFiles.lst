@@ -1,8 +1,11 @@
+/Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/config/SwaggerConfig.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/controller/RaceController.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/model/RaceResult.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/exception/RestExceptionHandler.java
+/Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/service/impl/WeatherInfoServiceImpl.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/service/RiderService.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/model/Race.java
+/Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/service/WeatherInfoService.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/service/impl/RaceResultServiceImpl.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/model/Rider.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/RaceClubServiceApplication.java
@@ -16,3 +19,4 @@
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/controller/RiderController.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/controller/RaceResultController.java
 /Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/exception/RaceNotFoundException.java
+/Users/livhuwanimatsigila/Documents/Projects/mountain-bike-race/src/main/java/com/clickatel/raceclub/model/WeatherInfo.java
