@@ -14,9 +14,9 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
 
 
     @Value("${weather.info.api.key}")
-    private static String WEATHER_INFO_API_KEY;
+    private String WEATHER_INFO_API_KEY;
     @Value("${weather.info.api.url}")
-    private static String WEATHER_INFO_URL;
+    private String WEATHER_INFO_URL;
 
     @Override
     public WeatherInfo weatherForecast(String location) throws JsonProcessingException {

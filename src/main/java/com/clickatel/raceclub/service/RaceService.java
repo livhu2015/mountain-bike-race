@@ -1,5 +1,7 @@
 package com.clickatel.raceclub.service;
 
+import com.clickatel.raceclub.dto.RaceDto;
+import com.clickatel.raceclub.exception.RaceNotFoundException;
 import com.clickatel.raceclub.model.Race;
 import com.clickatel.raceclub.model.Rider;
 import org.springframework.stereotype.Service;
@@ -8,13 +10,11 @@ import java.util.List;
 
 @Service
 public interface RaceService {
-    List<Race> getRaces();
+    List<Race> getRaces() throws RaceNotFoundException;
 
-    Race createRace(Race rider);
-
-    Rider updateRace(long id, Race rider);
+    void createRace(RaceDto rider);
 
     void deleteRace(long id);
 
-    Race getRaceById(long raceId);
+    Race getRaceById(long raceId) throws RaceNotFoundException;
 }

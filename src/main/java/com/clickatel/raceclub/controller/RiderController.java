@@ -1,5 +1,6 @@
 package com.clickatel.raceclub.controller;
 
+import com.clickatel.raceclub.dto.RiderDto;
 import com.clickatel.raceclub.service.RiderService;
 import com.clickatel.raceclub.model.Rider;
 import lombok.extern.slf4j.Slf4j;
@@ -21,36 +22,30 @@ public class RiderController {
     }
 
     @GetMapping("/riders/{id}")
-    public Rider getRiderById(@PathVariable(value = "id") Long riderId) {
-        // code to retrieve the rider with the given ID
+    public Rider getRiderById(@PathVariable(value = "id") long riderId) {
         Rider rider = riderService.getRiderById(riderId);
         return rider;
     }
 
     @GetMapping("/all/riders")
     public List<Rider> getRiders() {
-        //retrieve a list of riders
         List<Rider> riders = riderService.getRiders();
         return riders;
     }
 
-    @PostMapping("/create/riders")
-    public Rider createRider(@RequestBody Rider rider) {
-        // create a new rider with the data from the request body
-        Rider newRider = riderService.createRider(rider);
-        return newRider;
+    @PostMapping("/create/rider")
+    public void createRider(@RequestBody RiderDto rider) {
+        riderService.createRider(rider);
     }
 
-    @PutMapping("/update/riders/{id}")
+    @PutMapping("/update/{id}")
     public Rider updateRider(@PathVariable Long id, @RequestBody Rider rider) {
-        // code to update the rider with the given ID using the data from the request body
         Rider updatedRider = riderService.updateRider(id, rider);
         return updatedRider;
     }
 
-    @DeleteMapping("/delete/riders/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteRider(@PathVariable Long id) {
-        // code to delete the rider with the given ID
         riderService.deleteRider(id);
     }
 }

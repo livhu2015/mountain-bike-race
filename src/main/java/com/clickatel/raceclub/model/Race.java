@@ -13,6 +13,7 @@ import java.time.LocalTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "race")
 public class Race {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,14 +22,11 @@ public class Race {
     @Column
     private String title;
     @Column
-    private LocalTime startTime;
+    private String startTime;
     @Column
-    private LocalTime endTime;
+    private String endTime;
 
     @Column
     String country;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "weather_info_id")
-//    private WeatherInfo weatherInfo;
+
 }

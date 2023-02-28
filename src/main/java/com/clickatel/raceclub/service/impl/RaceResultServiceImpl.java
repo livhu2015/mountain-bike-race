@@ -28,20 +28,18 @@ public class RaceResultServiceImpl implements RaceResultService {
     private RaceRepository raceRepository;
 
     @Override
-    public List<Rider> getFastestThreeRidersByRace(long raceId) throws RaceNotFoundException {
-//        RaceResult sortedRidersResults = raceResultRepository.findRiderOrderByDurationAsc(race);
+    public List<Rider> getFastestThreeRidersByRace(long id) throws RaceNotFoundException {
 
-        Race race = raceRepository.findRaceById(raceId);
+        Race race = raceRepository.findRaceById(id);
         RaceResult raceResult = raceResultRepository.findRaceResultByRace(race);
         if (raceResult == null) {
             throw new RaceNotFoundException("Race not found");
         }
 
-
         Set<Rider> riders = raceResult.getRiders();
 
         System.out.println("Initial Set: " + riders);
-        Set<Rider> sortedRiders = new TreeSet<>((r1, r2) -> r1.getDuration().compareTo(r2.getDuration()));
+        Set<Rider> sortedRiders = new TreeSet<>(Comparator.comparing(Rider::getDuration));
         sortedRiders.addAll(riders);
 
         System.out.println("Sorted Set: " + sortedRiders);
@@ -54,17 +52,17 @@ public class RaceResultServiceImpl implements RaceResultService {
     }
 
     @Override
-    public List<Rider> getRidersDidNotFinish(Long raceId) {
+    public List<Rider> getRidersDidNotFinish(long id) {
         List<Rider> ridersDidNotFinish = new ArrayList<>();
 
         try {
-            Race race = raceRepository.findRaceById(raceId);
+            Race race = raceRepository.findRaceById(id);
             if (race == null) {
                 throw new RaceNotFoundException("Race not found");
             }
             RaceResult raceResults = raceResultRepository.findRaceResultByRace(race);
             for (Rider rider : raceResults.getRiders()) {
-                if ( rider.getDuration().getSeconds() < 120) {
+                if ( rider.getDuration() < 120) {
                     ridersDidNotFinish.add(rider);
                 }
             }
@@ -77,11 +75,11 @@ public class RaceResultServiceImpl implements RaceResultService {
     }
 
     @Override
-    public List<Rider> getRidersDidNotTakePartInRace(Long raceId) {
+    public List<Rider> getRidersDidNotTakePartInRace(long id) {
         List<Rider> ridersDidNotTakePart = new ArrayList<>();
 
         try {
-            Race race = raceRepository.findRaceById(raceId);
+            Race race = raceRepository.findRaceById(id);
             if (race == null) {
                 throw new RaceNotFoundException("Race not found");
             }

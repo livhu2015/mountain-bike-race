@@ -2,6 +2,8 @@ com/clickatel/raceclub/model/WeatherInfo.class
 com/clickatel/raceclub/service/RiderService.class
 com/clickatel/raceclub/repository/RaceRepository.class
 com/clickatel/raceclub/config/SwaggerConfig.class
+com/clickatel/raceclub/exception/RiderNotFoundException.class
+com/clickatel/raceclub/dto/RiderDto.class
 com/clickatel/raceclub/service/WeatherInfoService.class
 com/clickatel/raceclub/model/RaceResult.class
 com/clickatel/raceclub/model/Race.class
@@ -9,6 +11,7 @@ com/clickatel/raceclub/service/RaceService.class
 com/clickatel/raceclub/exception/RaceNotFoundException.class
 com/clickatel/raceclub/controller/RiderController.class
 com/clickatel/raceclub/model/Rider.class
+com/clickatel/raceclub/dto/RaceDto$RaceDtoBuilder.class
 com/clickatel/raceclub/model/Race$RaceBuilder.class
 com/clickatel/raceclub/service/impl/RaceServiceImpl.class
 com/clickatel/raceclub/service/impl/RaceResultServiceImpl.class
@@ -17,9 +20,12 @@ com/clickatel/raceclub/repository/RaceResultRepository.class
 com/clickatel/raceclub/model/RaceResult$RaceResultBuilder.class
 com/clickatel/raceclub/service/impl/WeatherInfoServiceImpl.class
 com/clickatel/raceclub/service/impl/RiderServiceImpl.class
+com/clickatel/raceclub/util/DurationDeserializer.class
 com/clickatel/raceclub/controller/RaceResultController.class
 com/clickatel/raceclub/repository/RiderRepository.class
+com/clickatel/raceclub/dto/RiderDto$RiderDtoBuilder.class
 com/clickatel/raceclub/service/RaceResultService.class
 com/clickatel/raceclub/controller/RaceController.class
+com/clickatel/raceclub/dto/RaceDto.class
 com/clickatel/raceclub/RaceClubServiceApplication.class
 com/clickatel/raceclub/exception/RestExceptionHandler.class

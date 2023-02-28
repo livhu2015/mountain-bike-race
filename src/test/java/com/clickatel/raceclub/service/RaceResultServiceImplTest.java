@@ -35,13 +35,13 @@ public class RaceResultServiceImplTest {
     @Test
     public void testGetFastestThreeRidersByRace() throws RaceNotFoundException {
 
-        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0), "France");
+        Race race = new Race(1L, "Tour de France", "08h00", "16h00", "France");
         Set<Rider> riders = new HashSet<>();
-        Rider rider1 = new Rider(1L, "John Doe", "john.doe@example.com",  30, Duration.ofMinutes(810));
-        Rider rider2 = new Rider(2L, "Jane Doe", "john.doe@example.com",  30, Duration.ofMinutes(170));
-        Rider rider3 = new Rider(3L, "Alex Smith", "john.doe@example.com",  30, Duration.ofMinutes(60));
-        Rider rider4 = new Rider(4L, "Shoe Smith", "john.doe@example.com",  30, Duration.ofMinutes(120));
-        Rider rider5 = new Rider(5L, "Mic Smith", "john.doe@example.com",  30, Duration.ofMinutes(110));
+        Rider rider1 = new Rider(1L, "John Doe", "john.doe@example.com",  30, 810.0);
+        Rider rider2 = new Rider(2L, "Jane Doe", "john.doe@example.com",  30, 170.0);
+        Rider rider3 = new Rider(3L, "Alex Smith", "john.doe@example.com",  30, 60.0);
+        Rider rider4 = new Rider(4L, "Shoe Smith", "john.doe@example.com",  30, 120.0);
+        Rider rider5 = new Rider(5L, "Mic Smith", "john.doe@example.com",  30, 110.0);
 
         riders.add(rider1);
         riders.add(rider2);
@@ -67,10 +67,10 @@ public class RaceResultServiceImplTest {
     @Test
     public void testGetRidersDidNotFinish() {
 
-        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0), "France");
-        Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, Duration.ofSeconds(120));
-        Rider rider2 = new Rider(2L, "Mick Doe", "john.doe@example.com",  30, Duration.ofSeconds(100));
-        Rider rider3 = new Rider(3L, "alex Doe", "john.doe@example.com",  30, Duration.ofSeconds(80));
+        Race race = new Race(1L, "Tour de France", "08h00", "16h00", "France");
+        Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, 120.0);
+        Rider rider2 = new Rider(2L, "Mick Doe", "john.doe@example.com",  30, 100.0);
+        Rider rider3 = new Rider(3L, "alex Doe", "john.doe@example.com",  30, 80.5);
 
         Set<Rider> riders = new HashSet<>();
         riders.add(rider1);
@@ -92,10 +92,10 @@ public class RaceResultServiceImplTest {
     @Test
     public void testGetRidersDidNotTakePartInRace() {
 
-        Race race = new Race(1L, "Tour de France", LocalTime.of(8, 0), LocalTime.of(16, 0), "France");
-        Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, Duration.ofSeconds(120));
+        Race race = new Race(1L, "Tour de France", "08h00", "16h00", "France");
+        Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, 120.0);
         Rider rider2 = new Rider(2L, "Jane Doe", "john.doe@example.com",  28, null);
-        Rider rider3 = new Rider(3L, "Alex Doe", "john.doe@example.com",  23, Duration.ofSeconds(400));
+        Rider rider3 = new Rider(3L, "Alex Doe", "john.doe@example.com",  23,400.5);
         Rider rider4 = new Rider(4L, "Mick Doe", "john.doe@example.com",  19, null);
 
         Set<Rider> riders = new HashSet<>();

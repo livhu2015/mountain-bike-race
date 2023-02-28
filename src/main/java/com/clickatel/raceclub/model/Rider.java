@@ -10,6 +10,7 @@ import java.time.Duration;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "rider")
 public class Rider {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,16 +19,11 @@ public class Rider {
     @Column
     @NotNull(message = "Rider's name may not be null")
     private String name;
-
     @Column
     private String email;
-
     @Column
     private int age;
-
     @Column
-    private Duration duration;
+    private Double duration;
 
-//    @Column
-//    String country;
 }

@@ -1,5 +1,6 @@
 package com.clickatel.raceclub.service;
 
+import com.clickatel.raceclub.dto.RiderDto;
 import com.clickatel.raceclub.model.Rider;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ public interface RiderService {
 
     List<Rider> getRiders();
 
-    Rider createRider(Rider rider);
+    void createRider(RiderDto rider);
 
     Rider updateRider(Long id, Rider rider);
 

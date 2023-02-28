@@ -24,19 +24,19 @@ public class RaceResultController {
         this.raceResultService = raceResultService;
     }
 
-    @GetMapping("/fastest-three-riders")
-    public List<Rider> getFastestThreeRidersByRace(@PathVariable long raceId) throws RaceNotFoundException {
-        return raceResultService.getFastestThreeRidersByRace(raceId);
+    @GetMapping("/{id}/fastest-three-riders")
+    public List<Rider> getFastestThreeRidersByRace(@PathVariable Long id) throws RaceNotFoundException {
+        return raceResultService.getFastestThreeRidersByRace(id);
     }
 
-    @GetMapping("/riders-did-not-finish")
-    public List<Rider> getRidersDidNotFinish(@PathVariable Long raceId) {
-        return raceResultService.getRidersDidNotFinish(raceId);
+    @GetMapping("/{id}/riders-did-not-finish")
+    public List<Rider> getRidersDidNotFinish(@PathVariable Long id) {
+        return raceResultService.getRidersDidNotFinish(id);
     }
 
-    @GetMapping("/riders-did-not-take-part")
-    public List<Rider> getRidersDidNotTakePartInRace(@PathVariable Long raceId) {
-        return raceResultService.getRidersDidNotTakePartInRace(raceId);
+    @GetMapping("/{id}/riders-did-not-take-part")
+    public List<Rider> getRidersDidNotTakePartInRace(@PathVariable Long id) {
+        return raceResultService.getRidersDidNotTakePartInRace(id);
     }
 
 }

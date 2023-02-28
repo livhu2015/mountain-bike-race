@@ -1,7 +1,8 @@
 package com.clickatel.raceclub.controller;
 
+import com.clickatel.raceclub.dto.RaceDto;
+import com.clickatel.raceclub.exception.RaceNotFoundException;
 import com.clickatel.raceclub.model.Race;
-import com.clickatel.raceclub.model.Rider;
 import com.clickatel.raceclub.service.RaceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,26 +20,21 @@ public class RaceController {
     public RaceController(RaceService raceResultService) {
         this.raceService = raceResultService;
     }
-    @GetMapping("/race/{raceId}")
-    public Race getRaceById(@PathVariable Long raceId) {
+
+    @GetMapping("/get/{raceId}")
+    public Race getRaceById(@PathVariable Long raceId) throws RaceNotFoundException {
+
         return raceService.getRaceById(raceId);
     }
     @GetMapping("/all/races")
-    public List<Race> getRaces() {
+    public List<Race> getRaces() throws RaceNotFoundException {
         return raceService.getRaces();
     }
     @PostMapping("/create/race")
-    public Race createRace(Race race) {
-        return raceService.createRace(race);
+    public void createRace(RaceDto race) {
+        raceService.createRace(race);
     }
-
-    @PutMapping("/update/race/{raceId}")
-    public Rider updateRace(@PathVariable Long raceId, @RequestBody Race race) {
-
-        return raceService.updateRace(raceId, race);
-    }
-
-    @DeleteMapping("/delete/race/{raceId}")
+    @DeleteMapping("/delete/{raceId}")
     public void deleteRace(@PathVariable Long raceId) {
         raceService.deleteRace(raceId);
     }
