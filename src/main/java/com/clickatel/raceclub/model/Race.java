@@ -25,7 +25,6 @@ public class Race {
     private String startTime;
     @Column
     private String endTime;
-
     @Column
     String country;
 

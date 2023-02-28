@@ -29,9 +29,9 @@ public class RaceServiceImpl implements RaceService {
     private RaceRepository raceRepository;
 
     @Override
-    public Race getRaceById(long raceId) throws RaceNotFoundException {
+    public Race getRaceById(long id) throws RaceNotFoundException {
         try {
-            Race race = raceRepository.findRaceById(raceId);
+            Race race = raceRepository.findRaceById(id);
             if (race == null) {
                 throw new RaceNotFoundException("No Race found" + RaceDto.builder().build());
             }

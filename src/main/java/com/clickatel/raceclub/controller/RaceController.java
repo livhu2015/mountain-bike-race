@@ -17,14 +17,14 @@ public class RaceController {
     private final RaceService raceService;
 
     @Autowired
-    public RaceController(RaceService raceResultService) {
-        this.raceService = raceResultService;
+    public RaceController(RaceService raceService) {
+        this.raceService = raceService;
     }
 
-    @GetMapping("/get/{raceId}")
-    public Race getRaceById(@PathVariable Long raceId) throws RaceNotFoundException {
+    @GetMapping("/get/{id}")
+    public Race getRaceById(@PathVariable Long id) throws RaceNotFoundException {
 
-        return raceService.getRaceById(raceId);
+        return raceService.getRaceById(id);
     }
     @GetMapping("/all/races")
     public List<Race> getRaces() throws RaceNotFoundException {
@@ -34,8 +34,8 @@ public class RaceController {
     public void createRace(RaceDto race) {
         raceService.createRace(race);
     }
-    @DeleteMapping("/delete/{raceId}")
-    public void deleteRace(@PathVariable Long raceId) {
-        raceService.deleteRace(raceId);
+    @DeleteMapping("/delete/{id}")
+    public void deleteRace(@PathVariable Long id) {
+        raceService.deleteRace(id);
     }
 }

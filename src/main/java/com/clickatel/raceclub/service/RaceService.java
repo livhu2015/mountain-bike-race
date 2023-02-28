@@ -16,5 +16,5 @@ public interface RaceService {
 
     void deleteRace(long id);
 
-    Race getRaceById(long raceId) throws RaceNotFoundException;
+    Race getRaceById(long id) throws RaceNotFoundException;
 }
