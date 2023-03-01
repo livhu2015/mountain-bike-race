@@ -1,14 +1,12 @@
 package com.clickatel.raceclub.service;
 
-import com.clickatel.raceclub.controller.RiderController;
 import com.clickatel.raceclub.exception.RaceNotFoundException;
+import com.clickatel.raceclub.model.Race;
 import com.clickatel.raceclub.model.RaceResult;
 import com.clickatel.raceclub.model.Rider;
-import com.clickatel.raceclub.model.WeatherInfo;
 import com.clickatel.raceclub.repository.RaceRepository;
 import com.clickatel.raceclub.repository.RaceResultRepository;
 import com.clickatel.raceclub.service.impl.RaceResultServiceImpl;
-import com.clickatel.raceclub.model.Race;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,11 +14,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.Duration;
-import java.time.LocalTime;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 

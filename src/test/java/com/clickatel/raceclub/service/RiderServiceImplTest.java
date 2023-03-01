@@ -1,8 +1,8 @@
 package com.clickatel.raceclub.service;
+
 import com.clickatel.raceclub.dto.RiderDto;
 import com.clickatel.raceclub.model.Rider;
 import com.clickatel.raceclub.repository.RiderRepository;
-import com.clickatel.raceclub.service.impl.RaceResultServiceImpl;
 import com.clickatel.raceclub.service.impl.RiderServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,10 +11,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.Duration;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
