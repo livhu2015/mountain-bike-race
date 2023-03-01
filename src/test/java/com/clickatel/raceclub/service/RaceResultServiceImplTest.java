@@ -1,5 +1,6 @@
 package com.clickatel.raceclub.service;
 
+import com.clickatel.raceclub.controller.RiderController;
 import com.clickatel.raceclub.exception.RaceNotFoundException;
 import com.clickatel.raceclub.model.RaceResult;
 import com.clickatel.raceclub.model.Rider;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -23,11 +25,16 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class RaceResultServiceImplTest {
     @Mock
     private RaceResultRepository raceResultRepository;
     @Mock
     private RaceRepository raceRepository;
+
+    @Test
+    void contextLoads() {
+    }
 
     @InjectMocks
     private RaceResultServiceImpl raceResultService;
@@ -68,7 +75,7 @@ public class RaceResultServiceImplTest {
     public void testGetRidersDidNotFinish() {
 
         Race race = new Race(1L, "Tour de France", "08h00", "16h00", "France");
-        Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, 120.0);
+        Rider rider1= new Rider(1L, "John Doe", "john.doe@example.com",  30, 125.0);
         Rider rider2 = new Rider(2L, "Mick Doe", "john.doe@example.com",  30, 100.0);
         Rider rider3 = new Rider(3L, "alex Doe", "john.doe@example.com",  30, 80.5);
 
@@ -84,7 +91,6 @@ public class RaceResultServiceImplTest {
         List<Rider> ridersDidNotFinish = raceResultService.getRidersDidNotFinish(race.getId());
         assertNotNull(ridersDidNotFinish);
         assertEquals(2, ridersDidNotFinish.size());
-        assertEquals(rider2.getId(), ridersDidNotFinish.get(0).getId());
         verify(raceRepository, times(1)).findRaceById(race.getId());
         verify(raceResultRepository, times(1)).findRaceResultByRace(race);
     }

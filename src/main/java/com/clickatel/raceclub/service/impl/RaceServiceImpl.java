@@ -3,22 +3,14 @@ package com.clickatel.raceclub.service.impl;
 import com.clickatel.raceclub.dto.RaceDto;
 import com.clickatel.raceclub.exception.RaceNotFoundException;
 import com.clickatel.raceclub.model.Race;
-import com.clickatel.raceclub.model.Rider;
-import com.clickatel.raceclub.model.WeatherInfo;
 import com.clickatel.raceclub.repository.RaceRepository;
 import com.clickatel.raceclub.service.RaceService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service

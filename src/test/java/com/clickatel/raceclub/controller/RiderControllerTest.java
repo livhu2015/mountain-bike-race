@@ -5,7 +5,7 @@ import com.clickatel.raceclub.model.Rider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.skyscreamer.jsonassert.JSONAssert;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,11 +19,15 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class RiderControllerTest {
 
@@ -31,8 +35,12 @@ public class RiderControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
-    @Autowired
+    @Mock
     private RiderController clientController;
+
+    @Test
+    void contextLoads() {
+    }
 
     @Test
     public void testGetRiderById() throws Exception {
@@ -82,11 +90,18 @@ public class RiderControllerTest {
     public void testCreateRider() throws Exception {
         // Define the request body
         RiderDto rider = RiderDto.builder().name("Alice").age(32).build();
-        String requestBody = "{\"name\":\"Alice\",\"age\":\"32\"}";
+        String requestBody = objectMapper.writeValueAsString(rider);
+
         // Perform a POST request to the /riders endpoint with the request body
         mockMvc.perform(MockMvcRequestBuilders.post("/rider/create/rider")
                 .content(requestBody)
-                .contentType(MediaType.APPLICATION_JSON)).andReturn();
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        List<Rider> riders = clientController.getRiders();
+        assertThat(riders.size(), equalTo(1));
+        assertThat(riders.get(0).getName(), equalTo("Alice"));
+
     }
 
 }

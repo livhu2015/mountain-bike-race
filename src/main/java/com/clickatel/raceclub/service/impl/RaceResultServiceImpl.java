@@ -23,9 +23,6 @@ public class RaceResultServiceImpl implements RaceResultService {
     private RaceResultRepository raceResultRepository;
 
     @Autowired
-    private RiderRepository riderRepository;
-
-    @Autowired
     private RaceRepository raceRepository;
 
     @Override
@@ -64,7 +61,7 @@ public class RaceResultServiceImpl implements RaceResultService {
             }
             RaceResult raceResults = raceResultRepository.findRaceResultByRace(race);
             for (Rider rider : raceResults.getRiders()) {
-                if ( rider.getDuration() < 120) {
+                if ( rider.getDuration() < 120.0) {
                     ridersDidNotFinish.add(rider);
                 }
             }

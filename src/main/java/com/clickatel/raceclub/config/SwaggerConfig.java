@@ -21,35 +21,21 @@ public class SwaggerConfig {
     public Docket apiDocsConfig() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.clickatel.raceclub.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaData());
     }
-
-
     private ApiInfo metaData() {
-        return new ApiInfo("REST API Services",
-                "Spring Boot REST API ", "1.0",
+        return new ApiInfo("Mountain Bike Club REST API Services",
+                "Mountain Bike Club REST API Services ", "1.0",
                 "Terms of service",
-                new Contact("Tech",
-                        "https://springframework.guru/about/",
-                        ""),
+                new Contact("Livhuwani Matsigila",
+                        null,
+                        "livhuwanimatsigila@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0",
                 new ArrayList<>());
     }
-
-
-//    @Bean
-//    public Docket api() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.clickatel.raceclub.controller"))
-//                .paths(PathSelectors.any())
-//                .build()
-//                .apiInfo(apiInfo());
-//    }
-
 
 }
