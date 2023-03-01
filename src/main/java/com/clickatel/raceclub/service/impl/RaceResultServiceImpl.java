@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -48,7 +49,8 @@ public class RaceResultServiceImpl implements RaceResultService {
             return new ArrayList<>();
         }
 
-        return sortedRiders.stream().toList().subList(0, Math.min(riders.size(), 3));
+        return sortedRiders.stream().collect(Collectors.toList()).subList(0, Math.min(riders.size(), 3 ));
+        //return sortedRiders.stream().toList().subList(0, Math.min(riders.size(), 3));
     }
 
     @Override
