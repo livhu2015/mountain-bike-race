@@ -12,17 +12,15 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class WeatherInfoServiceImpl implements WeatherInfoService {
 
-
     @Value("${weather.info.api.key}")
     private String WEATHER_INFO_API_KEY;
-    @Value("${weather.info.api.url}")
-    private String WEATHER_INFO_URL;
 
     @Override
     public WeatherInfo weatherForecast(String location) throws JsonProcessingException {
         WeatherInfo weatherInfo = new WeatherInfo();
 
-        String url = WEATHER_INFO_URL + location + "&appid=" + WEATHER_INFO_API_KEY;
+        String url = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + WEATHER_INFO_API_KEY;
+
         RestTemplate restTemplate = new RestTemplate();
         String response = restTemplate.getForObject(url, String.class);
 
@@ -30,10 +28,12 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
         JsonNode root = mapper.readTree(response);
         String description = root.path("weather").get(0).path("description").asText();
         double temperature = root.path("main").path("temp").asDouble();
+        String city = root.path("name").asText();
         double humidity = root.path("main").path("humidity").asDouble();
         double windSpeed = root.path("wind").path("speed").asDouble();
 
-        weatherInfo.setDescription(description);
+        weatherInfo.setLocation(city);
+;        weatherInfo.setDescription(description);
         weatherInfo.setTemperature(temperature);
         weatherInfo.setHumidity(humidity);
         weatherInfo.setWindSpeed(windSpeed);

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class WeatherInfo {
-    private String city;
+    private String location;
     private String description;
     private Double temperature;
     private Double humidity;
